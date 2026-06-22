@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amirul Hakimi · Computer Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f4f9;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      line-height: 1.5;
+      color: #1e293b;
+    }
+
+    .cv-card {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 30px 60px -15px rgba(0, 20, 30, 0.2), 0 10px 30px -10px rgba(0,0,0,0.05);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s ease;
+      animation: floatIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(2px);
+    }
+
+    @keyframes floatIn {
+      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* subtle animated underline */
+    .section-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.3px;
+      color: #0b2b4a;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      border-bottom: 4px solid #2563eb;
+      padding-bottom: 6px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #7c9bff);
+      border-radius: 4px;
+      animation: shimmer 2.4s infinite alternate;
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 0.6; transform: scaleX(0.9); }
+      100% { opacity: 1; transform: scaleX(1.1); }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 2.2rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ----- left panel ----- */
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .profile-summary {
+      background: #f8faff;
+      padding: 1.5rem 1.4rem;
+      border-radius: 24px;
+      border: 1px solid #e9edf4;
+      transition: 0.2s;
+    }
+
+    .profile-summary p {
+      font-size: 0.98rem;
+      color: #1e2f44;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .info-item {
+      background: #f8faff;
+      border-radius: 20px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #e9edf4;
+      transition: 0.15s;
+    }
+
+    .info-item:hover {
+      border-color: #bdd0f0;
+      background: #f5f9ff;
+    }
+
+    .info-item h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #4b5b73;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .info-item .value {
+      font-weight: 500;
+      color: #0a1c31;
+      font-size: 1rem;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.3rem;
+    }
+
+    .badge {
+      background: #e5edfb;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1a3d6e;
+      letter-spacing: 0.2px;
+      transition: 0.1s;
+      border: 1px solid transparent;
+    }
+
+    .badge:hover {
+      background: #d4e2fc;
+      border-color: #2563eb30;
+      transform: translateY(-2px);
+    }
+
+    .ref-card {
+      background: #f2f7fe;
+      border-radius: 20px;
+      padding: 1.2rem 1.4rem;
+      border-left: 5px solid #2563eb;
+    }
+
+    .ref-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .ref-card .name {
+      font-weight: 700;
+      color: #0d2642;
+    }
+
+    .ref-card .role {
+      color: #2f4a6e;
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+
+    .ref-card .email {
+      font-size: 0.85rem;
+      color: #2563eb;
+      word-break: break-all;
+    }
+
+    /* ----- right panel ----- */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .professional-summary {
+      background: #f8faff;
+      padding: 1.5rem 1.8rem;
+      border-radius: 24px;
+      border: 1px solid #e9edf4;
+    }
+
+    .professional-summary p {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #1f334b;
+    }
+
+    .project-item {
+      background: #fbfdff;
+      padding: 0.9rem 1.2rem;
+      border-radius: 18px;
+      margin-bottom: 0.9rem;
+      border: 1px solid #eef3fa;
+      transition: 0.2s;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-item:hover {
+      background: #f5faff;
+      border-color: #c3d6f0;
+      transform: translateX(4px);
+    }
+
+    .project-item strong {
+      color: #0b2b4a;
+      font-weight: 700;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .project-item span {
+      color: #1f3b5c;
+      font-weight: 400;
+    }
+
+    .exp-item {
+      background: #fbfdff;
+      padding: 0.9rem 1.2rem;
+      border-radius: 18px;
+      border: 1px solid #eef3fa;
+      margin-bottom: 0.9rem;
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-item .exp-title {
+      font-weight: 700;
+      color: #0b2b4a;
+    }
+
+    .exp-item .exp-meta {
+      font-weight: 500;
+      color: #2563eb;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-item ul {
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+      list-style-type: disc;
+    }
+
+    .exp-item li {
+      font-size: 0.92rem;
+      color: #1f334b;
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+    }
+
+    .cert-grid span {
+      background: #eef4fc;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #1a3d6e;
+    }
+
+    .lang-item {
+      background: #f2f7fe;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-weight: 500;
+      color: #0d2642;
+    }
+
+    /* skill chips */
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-chip {
+      background: #eef3fa;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f3b5c;
+      border: 1px solid transparent;
+      transition: 0.1s;
+    }
+
+    .skill-chip:hover {
+      background: #e2ebf9;
+      border-color: #2563eb40;
+    }
+
+    .edu-detail {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .edu-detail .univ {
+      font-weight: 700;
+      color: #0b2b4a;
+    }
+
+    .edu-detail .degree {
+      font-weight: 500;
+      color: #1f3b5c;
+    }
+
+    .edu-detail .cgpa {
+      background: #2563eb10;
+      padding: 0.1rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-weight: 600;
+      color: #1a4a8a;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+      align-self: flex-start;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #d8e2f0;
+      margin: 0.4rem 0 1rem 0;
+    }
+
+    @media (max-width: 850px) {
+      .cv-card { padding: 1.8rem; }
+      .grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .cv-card { padding: 1.2rem; }
+    }
+
+    /* extra polish */
+    .highlight-blue {
+      color: #2563eb;
+    }
+
+    .mt-1 { margin-top: 0.4rem; }
+    .mb-1 { margin-bottom: 0.4rem; }
+    .flex { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div class="cv-card">
+    <!-- header: name + subtle line -->
+    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 1.8rem;">
+      <h1 style="font-size: 2.2rem; font-weight: 700; letter-spacing: -0.6px; color: #0b2b4a; background: linear-gradient(145deg, #102a44, #1b3f62); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Amirul Hakimi</h1>
+      <span style="background: #eaf1fd; padding: 0.3rem 1.4rem; border-radius: 60px; font-weight: 500; color: #1a3d6e; font-size: 0.85rem; border: 1px solid #c5d9f5;">Computer Engineer</span>
+    </div>
+
+    <div class="grid-2">
+      <!-- LEFT -->
+      <div class="left-panel">
+        <!-- Education -->
+        <div class="info-item">
+          <h4>🎓 Education</h4>
+          <div class="edu-detail">
+            <span class="univ">Universiti Malaysia Perlis (UniMAP)</span>
+            <span class="degree">Bachelor of Computer Engineering (Hons.)</span>
+            <span style="font-size:0.9rem; color:#1f3b5c;">Oct 2021 – Aug 2025</span>
+            <span class="cgpa">CGPA: 3.78</span>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="info-item">
+          <h4>⚙️ Technical Skills</h4>
+          <div style="margin-bottom: 0.3rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Programming</div>
+          <div class="skill-chips">
+            <span class="skill-chip">Python</span><span class="skill-chip">Java</span><span class="skill-chip">C++</span>
+            <span class="skill-chip">JavaScript</span><span class="skill-chip">HTML</span><span class="skill-chip">CSS</span>
+          </div>
+          <div style="margin: 0.6rem 0 0.2rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Tools & Hardware</div>
+          <div class="skill-chips">
+            <span class="skill-chip">GitHub</span><span class="skill-chip">VS Code</span><span class="skill-chip">Arduino IDE</span>
+            <span class="skill-chip">MATLAB</span><span class="skill-chip">Proteus</span>
+          </div>
+          <div style="margin: 0.6rem 0 0.2rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Hardware</div>
+          <div class="skill-chips">
+            <span class="skill-chip">ESP32</span><span class="skill-chip">ESP8266</span><span class="skill-chip">Arduino Uno</span>
+            <span class="skill-chip">Raspberry Pi</span>
+          </div>
+          <div style="margin: 0.6rem 0 0.2rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Database</div>
+          <div class="skill-chips">
+            <span class="skill-chip">MySQL</span><span class="skill-chip">Firebase</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="info-item">
+          <h4>🗣️ Languages</h4>
+          <div class="flex" style="gap: 0.8rem;">
+            <span class="lang-item">Malay</span>
+            <span class="lang-item">English</span>
+          </div>
+        </div>
+
+        <!-- Reference -->
+        <div class="ref-card">
+          <h4 style="font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.4px; color: #0d2642; margin-bottom: 0.5rem;">📌 Reference</h4>
+          <p class="name">Ts. Dr. Ahmad Faizal Bin Mohd Noor</p>
+          <p class="role">Senior Lecturer, School of Computer Engineering, UniMAP</p>
+          <p class="email">faizal@unimap.edu.my</p>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-panel">
+        <!-- Professional Summary -->
+        <div class="professional-summary">
+          <h4 class="section-title" style="margin-bottom: 0.6rem;">Professional Summary</h4>
+          <p>A motivated Computer Engineering graduate with strong interests in software development, embedded systems, Internet of Things (IoT), and artificial intelligence. Through academic projects and industrial exposure, I have developed problem-solving, teamwork, and technical skills. I am eager to contribute to engineering projects while continuing to grow professionally.</p>
+        </div>
+
+        <!-- Work Experience -->
+        <div>
+          <h4 class="section-title">Work Experience / Internship</h4>
+          <div class="exp-item">
+            <span class="exp-title">Intel Technology Malaysia Sdn. Bhd.</span>
+            <span class="exp-meta">Penang · Feb 2025 – Aug 2025</span>
+            <ul>
+              <li>Assisted engineers in automated testing activities.</li>
+              <li>Supported production data analysis and reporting.</li>
+              <li>Participated in IoT-based predictive maintenance projects.</li>
+              <li>Prepared technical documentation and reports.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div>
+          <h4 class="section-title">Projects</h4>
+          <div class="project-item"><strong>Smart Parking Monitoring System</strong> <span>– IoT-based parking availability monitoring using ESP32 and Firebase.</span></div>
+          <div class="project-item"><strong>Student Academic Guidance System</strong> <span>– Web-based academic recommendation system using PHP and MySQL.</span></div>
+          <div class="project-item"><strong>Smart Home Automation System</strong> <span>– Remote monitoring and appliance control using ESP8266.</span></div>
+        </div>
+
+        <!-- Certifications & Awards -->
+        <div>
+          <h4 class="section-title">Certifications & Awards</h4>
+          <div class="cert-grid">
+            <span>🏅 Dean's Award (Sem 2, 4, 6)</span>
+            <span>🥇 Gold Medal, UniMAP Innovation Competition 2024</span>
+            <span>📜 Cisco Networking Essentials</span>
+            <span>📊 Google Data Analytics Certificate</span>
+          </div>
+        </div>
+
+        <!-- tiny extra: soft separator + quote -->
+        <div style="margin-top: 0.8rem; border-top: 1px solid #e1e9f2; padding-top: 1.2rem; display: flex; justify-content: flex-end;">
+          <span style="font-size: 0.8rem; color: #4a6382; background: #f1f6fd; padding: 0.2rem 1.8rem; border-radius: 60px;">“ build, innovate, iterate ”</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
