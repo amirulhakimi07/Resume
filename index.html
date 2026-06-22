@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amirul Hakimi · Computer Engineer</title>
+  <title>One Piece · Amirul Hakimi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,7 +15,8 @@
     }
 
     body {
-      background: #f0f4f9;
+      background: #0c1a2b;
+      background-image: radial-gradient(circle at 20% 30%, #1d3a5a 0%, #0a1420 90%);
       font-family: 'Inter', sans-serif;
       display: flex;
       justify-content: center;
@@ -23,468 +24,477 @@
       min-height: 100vh;
       padding: 2rem 1rem;
       line-height: 1.5;
-      color: #1e293b;
+      color: #e8edf5;
+      position: relative;
+      overflow-x: hidden;
     }
 
+    /* subtle sea wave animation */
+    body::before {
+      content: '';
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      background: repeating-linear-gradient(90deg, 
+        rgba(30, 80, 120, 0.15) 0px, 
+        rgba(10, 40, 70, 0.25) 20px, 
+        rgba(30, 80, 120, 0.1) 40px);
+      background-size: 60px 100%;
+      animation: waveMove 8s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes waveMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 120px 0; }
+    }
+
+    /* main card – like a treasure map / wanted poster */
     .cv-card {
       max-width: 1100px;
       width: 100%;
-      background: #ffffff;
-      border-radius: 32px;
-      box-shadow: 0 30px 60px -15px rgba(0, 20, 30, 0.2), 0 10px 30px -10px rgba(0,0,0,0.05);
+      background: #f7f2e7;
+      background-image: linear-gradient(145deg, #fcf6e8 0%, #efe5d0 100%);
+      border-radius: 28px 28px 28px 28px;
+      box-shadow: 0 30px 60px -10px rgba(0,0,0,0.8), 0 0 0 2px #b8935c, 0 0 0 5px #7a5d3a;
       padding: 2.5rem 2.8rem;
-      transition: all 0.2s ease;
-      animation: floatIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      border: 1px solid rgba(255,255,255,0.3);
-      backdrop-filter: blur(2px);
+      position: relative;
+      z-index: 2;
+      border: 2px solid #d4af6e;
+      transition: all 0.2s;
+      animation: floatIn 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+      color: #1e2a3a;
     }
 
     @keyframes floatIn {
-      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
+      0% { opacity: 0; transform: translateY(60px) scale(0.94) rotate(-1deg); }
+      100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
     }
 
-    /* subtle animated underline */
-    .section-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: -0.3px;
-      color: #0b2b4a;
-      display: inline-block;
-      margin-bottom: 1.2rem;
-      border-bottom: 4px solid #2563eb;
-      padding-bottom: 6px;
+    /* ONE PIECE logo style */
+    .op-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+      border-bottom: 3px double #b68b4b;
+      padding-bottom: 0.8rem;
+    }
+
+    .op-title {
+      font-family: 'Pirata One', cursive;
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      background: linear-gradient(180deg, #d9a343, #8b5e2c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 0 #3d2b15, 4px 4px 0 #1f140a;
+      transform: rotate(-1deg);
       position: relative;
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #2563eb, #7c9bff);
-      border-radius: 4px;
-      animation: shimmer 2.4s infinite alternate;
+    .op-title::after {
+      content: '⚓';
+      font-size: 2rem;
+      margin-left: 10px;
+      -webkit-text-fill-color: initial;
+      color: #7a5d3a;
     }
 
-    @keyframes shimmer {
-      0% { opacity: 0.6; transform: scaleX(0.9); }
-      100% { opacity: 1; transform: scaleX(1.1); }
+    .straw-hat {
+      font-size: 2rem;
+      background: #2a1f12;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      color: #f0d49e;
+      border: 2px solid #bc8f4b;
+      box-shadow: 0 0 0 2px #5f421f;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-family: 'Pirata One', cursive;
+      animation: bountPulse 2.4s infinite alternate;
+    }
+
+    @keyframes bountPulse {
+      0% { box-shadow: 0 0 0 2px #bc8f4b, 0 0 8px #dba44b; }
+      100% { box-shadow: 0 0 0 4px #e8b85a, 0 0 20px #f5c76b; }
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 2.2fr;
       gap: 2.2rem;
-      margin-top: 0.5rem;
+      margin-top: 0.2rem;
     }
 
-    /* ----- left panel ----- */
+    /* ------ left panel (wanted style) ------ */
     .left-panel {
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
     }
 
-    .profile-summary {
-      background: #f8faff;
-      padding: 1.5rem 1.4rem;
-      border-radius: 24px;
-      border: 1px solid #e9edf4;
-      transition: 0.2s;
-    }
-
-    .profile-summary p {
-      font-size: 0.98rem;
-      color: #1e2f44;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
     .info-item {
-      background: #f8faff;
+      background: #fcf7ed;
       border-radius: 20px;
       padding: 1.2rem 1.4rem;
-      border: 1px solid #e9edf4;
-      transition: 0.15s;
+      border: 2px solid #c9ac7a;
+      box-shadow: inset 0 0 0 1px #efe2c6, 0 6px 12px -8px #3d2e1b;
+      transition: 0.2s;
+      position: relative;
     }
 
     .info-item:hover {
-      border-color: #bdd0f0;
-      background: #f5f9ff;
+      border-color: #b58b4a;
+      box-shadow: 0 0 0 3px #dbb77a;
     }
 
     .info-item h4 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: #4b5b73;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-family: 'Pirata One', cursive;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      color: #4f351a;
+      border-bottom: 2px dotted #b38b52;
+      padding-bottom: 4px;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .info-item .value {
-      font-weight: 500;
-      color: #0a1c31;
-      font-size: 1rem;
-    }
-
-    .badge-list {
+    .skill-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.3rem;
+      gap: 0.5rem;
     }
 
-    .badge {
-      background: #e5edfb;
+    .skill-chip {
+      background: #e2d4bb;
       padding: 0.2rem 1rem;
       border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #1a3d6e;
-      letter-spacing: 0.2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #2d2418;
+      border: 1px solid #b38b52;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
       transition: 0.1s;
-      border: 1px solid transparent;
     }
 
-    .badge:hover {
-      background: #d4e2fc;
-      border-color: #2563eb30;
-      transform: translateY(-2px);
+    .skill-chip:hover {
+      background: #dac89e;
+      transform: scale(1.04);
+      border-color: #9e7a44;
+    }
+
+    .lang-item {
+      background: #e2d4bb;
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 700;
+      color: #2d2418;
+      border: 1px solid #b38b52;
+      display: inline-block;
     }
 
     .ref-card {
-      background: #f2f7fe;
+      background: #e7dcc8;
       border-radius: 20px;
       padding: 1.2rem 1.4rem;
-      border-left: 5px solid #2563eb;
-    }
-
-    .ref-card p {
-      font-size: 0.9rem;
-      margin-bottom: 0.1rem;
+      border-left: 8px solid #a77c44;
+      border: 2px solid #b38b52;
+      box-shadow: inset 0 0 0 1px #efe2c6;
     }
 
     .ref-card .name {
       font-weight: 700;
-      color: #0d2642;
-    }
-
-    .ref-card .role {
-      color: #2f4a6e;
-      font-weight: 400;
-      font-size: 0.85rem;
+      color: #2f1f0d;
+      font-size: 1rem;
     }
 
     .ref-card .email {
-      font-size: 0.85rem;
-      color: #2563eb;
+      color: #7a5a2a;
       word-break: break-all;
+      font-weight: 600;
     }
 
-    /* ----- right panel ----- */
+    /* ------ right panel (grand line) ------ */
     .right-panel {
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
     }
 
+    .section-title {
+      font-family: 'Pirata One', cursive;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      color: #3d2b13;
+      border-bottom: 4px solid #b38b52;
+      padding-bottom: 4px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-shadow: 2px 2px 0 #d6bc8c;
+    }
+
+    .section-title i {
+      font-size: 1.8rem;
+    }
+
     .professional-summary {
-      background: #f8faff;
-      padding: 1.5rem 1.8rem;
-      border-radius: 24px;
-      border: 1px solid #e9edf4;
+      background: #fcf7ed;
+      padding: 1.2rem 1.6rem;
+      border-radius: 20px;
+      border: 2px solid #c9ac7a;
+      box-shadow: inset 0 0 0 1px #efe2c6;
     }
 
     .professional-summary p {
       font-size: 0.98rem;
-      line-height: 1.6;
-      color: #1f334b;
+      color: #1f2c3b;
+      font-weight: 500;
     }
 
     .project-item {
-      background: #fbfdff;
+      background: #fcf7ed;
       padding: 0.9rem 1.2rem;
-      border-radius: 18px;
-      margin-bottom: 0.9rem;
-      border: 1px solid #eef3fa;
+      border-radius: 16px;
+      margin-bottom: 0.8rem;
+      border: 2px solid #c9ac7a;
       transition: 0.2s;
-    }
-
-    .project-item:last-child {
-      margin-bottom: 0;
+      font-weight: 500;
     }
 
     .project-item:hover {
-      background: #f5faff;
-      border-color: #c3d6f0;
-      transform: translateX(4px);
+      background: #f5ebd9;
+      border-color: #b58b4a;
+      transform: translateX(6px);
     }
 
     .project-item strong {
-      color: #0b2b4a;
+      color: #3d2b13;
       font-weight: 700;
-      display: inline-block;
-      margin-right: 6px;
-    }
-
-    .project-item span {
-      color: #1f3b5c;
-      font-weight: 400;
     }
 
     .exp-item {
-      background: #fbfdff;
+      background: #fcf7ed;
       padding: 0.9rem 1.2rem;
-      border-radius: 18px;
-      border: 1px solid #eef3fa;
-      margin-bottom: 0.9rem;
-    }
-
-    .exp-item:last-child {
-      margin-bottom: 0;
+      border-radius: 16px;
+      border: 2px solid #c9ac7a;
+      margin-bottom: 0.8rem;
     }
 
     .exp-item .exp-title {
       font-weight: 700;
-      color: #0b2b4a;
+      color: #3d2b13;
     }
 
     .exp-item .exp-meta {
-      font-weight: 500;
-      color: #2563eb;
-      font-size: 0.85rem;
+      font-weight: 600;
+      color: #7a5a2a;
       display: block;
-      margin-bottom: 0.3rem;
+      font-size: 0.85rem;
     }
 
     .exp-item ul {
       padding-left: 1.2rem;
       margin-top: 0.3rem;
-      list-style-type: disc;
+      list-style-type: '🏴‍☠️ ';
     }
 
     .exp-item li {
       font-size: 0.92rem;
-      color: #1f334b;
+      color: #1f2c3b;
       margin-bottom: 0.2rem;
+      padding-left: 0.2rem;
     }
 
     .cert-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem 1.2rem;
+      gap: 0.6rem 1rem;
     }
 
     .cert-grid span {
-      background: #eef4fc;
-      padding: 0.2rem 1rem;
+      background: #e7dcc8;
+      padding: 0.2rem 1.2rem;
       border-radius: 40px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: #1a3d6e;
-    }
-
-    .lang-item {
-      background: #f2f7fe;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      display: inline-block;
-      font-weight: 500;
-      color: #0d2642;
-    }
-
-    /* skill chips */
-    .skill-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 0.6rem;
-      margin-top: 0.2rem;
-    }
-
-    .skill-chip {
-      background: #eef3fa;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
+      font-weight: 600;
+      color: #2d2418;
+      border: 1px solid #b38b52;
       font-size: 0.8rem;
-      font-weight: 500;
-      color: #1f3b5c;
-      border: 1px solid transparent;
-      transition: 0.1s;
-    }
-
-    .skill-chip:hover {
-      background: #e2ebf9;
-      border-color: #2563eb40;
-    }
-
-    .edu-detail {
-      display: flex;
-      flex-direction: column;
     }
 
     .edu-detail .univ {
       font-weight: 700;
-      color: #0b2b4a;
+      color: #3d2b13;
     }
-
-    .edu-detail .degree {
-      font-weight: 500;
-      color: #1f3b5c;
-    }
-
     .edu-detail .cgpa {
-      background: #2563eb10;
-      padding: 0.1rem 1rem;
+      background: #dac89e;
+      padding: 0.1rem 1.2rem;
       border-radius: 40px;
       display: inline-block;
-      font-weight: 600;
-      color: #1a4a8a;
-      font-size: 0.9rem;
-      margin-top: 0.2rem;
-      align-self: flex-start;
+      font-weight: 700;
+      color: #2d1f0c;
+      border: 1px solid #b38b52;
+      margin-top: 0.3rem;
     }
 
-    hr {
-      border: none;
-      border-top: 2px dashed #d8e2f0;
-      margin: 0.4rem 0 1rem 0;
+    .footer-quote {
+      margin-top: 0.8rem;
+      border-top: 3px double #b38b52;
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: flex-end;
+      font-family: 'Pirata One', cursive;
+      font-size: 1.2rem;
+      color: #5f421f;
+      letter-spacing: 1px;
+      animation: glowPirate 3s infinite alternate;
+    }
+
+    @keyframes glowPirate {
+      0% { opacity: 0.7; text-shadow: 0 0 4px #b38b52; }
+      100% { opacity: 1; text-shadow: 0 0 12px #e5b85c, 0 0 20px #b38b52; }
+    }
+
+    /* jolly roger decoration */
+    .skull-icon {
+      font-size: 1.4rem;
+      filter: drop-shadow(0 0 4px #b38b52);
     }
 
     @media (max-width: 850px) {
       .cv-card { padding: 1.8rem; }
       .grid-2 { grid-template-columns: 1fr; gap: 1.5rem; }
+      .op-title { font-size: 2.2rem; }
     }
 
     @media (max-width: 480px) {
       .cv-card { padding: 1.2rem; }
+      .op-header { flex-direction: column; align-items: start; gap: 0.6rem; }
     }
-
-    /* extra polish */
-    .highlight-blue {
-      color: #2563eb;
-    }
-
-    .mt-1 { margin-top: 0.4rem; }
-    .mb-1 { margin-bottom: 0.4rem; }
-    .flex { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
   </style>
 </head>
 <body>
-  <div class="cv-card">
-    <!-- header: name + subtle line -->
-    <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 1.8rem;">
-      <h1 style="font-size: 2.2rem; font-weight: 700; letter-spacing: -0.6px; color: #0b2b4a; background: linear-gradient(145deg, #102a44, #1b3f62); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Amirul Hakimi</h1>
-      <span style="background: #eaf1fd; padding: 0.3rem 1.4rem; border-radius: 60px; font-weight: 500; color: #1a3d6e; font-size: 0.85rem; border: 1px solid #c5d9f5;">Computer Engineer</span>
-    </div>
 
-    <div class="grid-2">
-      <!-- LEFT -->
-      <div class="left-panel">
-        <!-- Education -->
-        <div class="info-item">
-          <h4>🎓 Education</h4>
-          <div class="edu-detail">
-            <span class="univ">Universiti Malaysia Perlis (UniMAP)</span>
-            <span class="degree">Bachelor of Computer Engineering (Hons.)</span>
-            <span style="font-size:0.9rem; color:#1f3b5c;">Oct 2021 – Aug 2025</span>
-            <span class="cgpa">CGPA: 3.78</span>
-          </div>
-        </div>
+<div class="cv-card">
+  <!-- One Piece header -->
+  <div class="op-header">
+    <div class="op-title">Amirul Hakimi</div>
+    <div class="straw-hat">☠️ WANTED</div>
+  </div>
 
-        <!-- Technical Skills -->
-        <div class="info-item">
-          <h4>⚙️ Technical Skills</h4>
-          <div style="margin-bottom: 0.3rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Programming</div>
-          <div class="skill-chips">
-            <span class="skill-chip">Python</span><span class="skill-chip">Java</span><span class="skill-chip">C++</span>
-            <span class="skill-chip">JavaScript</span><span class="skill-chip">HTML</span><span class="skill-chip">CSS</span>
-          </div>
-          <div style="margin: 0.6rem 0 0.2rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Tools & Hardware</div>
-          <div class="skill-chips">
-            <span class="skill-chip">GitHub</span><span class="skill-chip">VS Code</span><span class="skill-chip">Arduino IDE</span>
-            <span class="skill-chip">MATLAB</span><span class="skill-chip">Proteus</span>
-          </div>
-          <div style="margin: 0.6rem 0 0.2rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Hardware</div>
-          <div class="skill-chips">
-            <span class="skill-chip">ESP32</span><span class="skill-chip">ESP8266</span><span class="skill-chip">Arduino Uno</span>
-            <span class="skill-chip">Raspberry Pi</span>
-          </div>
-          <div style="margin: 0.6rem 0 0.2rem; font-weight: 600; font-size: 0.8rem; color: #2f4a6e;">Database</div>
-          <div class="skill-chips">
-            <span class="skill-chip">MySQL</span><span class="skill-chip">Firebase</span>
-          </div>
-        </div>
-
-        <!-- Languages -->
-        <div class="info-item">
-          <h4>🗣️ Languages</h4>
-          <div class="flex" style="gap: 0.8rem;">
-            <span class="lang-item">Malay</span>
-            <span class="lang-item">English</span>
-          </div>
-        </div>
-
-        <!-- Reference -->
-        <div class="ref-card">
-          <h4 style="font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.4px; color: #0d2642; margin-bottom: 0.5rem;">📌 Reference</h4>
-          <p class="name">Ts. Dr. Ahmad Faizal Bin Mohd Noor</p>
-          <p class="role">Senior Lecturer, School of Computer Engineering, UniMAP</p>
-          <p class="email">faizal@unimap.edu.my</p>
+  <div class="grid-2">
+    <!-- LEFT PANEL : Grand Line info -->
+    <div class="left-panel">
+      <!-- Education -->
+      <div class="info-item">
+        <h4><span class="skull-icon">🏴‍☠️</span> Education</h4>
+        <div class="edu-detail">
+          <span class="univ">Universiti Malaysia Perlis (UniMAP)</span>
+          <span style="font-weight:500;">Bachelor of Computer Engineering (Hons.)</span>
+          <span style="font-size:0.9rem; color:#3d2b13;">Oct 2021 – Aug 2025</span>
+          <span class="cgpa">⚓ CGPA: 3.78</span>
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="right-panel">
-        <!-- Professional Summary -->
-        <div class="professional-summary">
-          <h4 class="section-title" style="margin-bottom: 0.6rem;">Professional Summary</h4>
-          <p>A motivated Computer Engineering graduate with strong interests in software development, embedded systems, Internet of Things (IoT), and artificial intelligence. Through academic projects and industrial exposure, I have developed problem-solving, teamwork, and technical skills. I am eager to contribute to engineering projects while continuing to grow professionally.</p>
+      <!-- Technical Skills -->
+      <div class="info-item">
+        <h4><span class="skull-icon">⚔️</span> Skills</h4>
+        <div style="font-weight:600; font-size:0.8rem; color:#4f351a;">Programming</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Python</span><span class="skill-chip">Java</span><span class="skill-chip">C++</span>
+          <span class="skill-chip">JavaScript</span><span class="skill-chip">HTML</span><span class="skill-chip">CSS</span>
         </div>
+        <div style="font-weight:600; font-size:0.8rem; color:#4f351a; margin-top:0.5rem;">Tools & Hardware</div>
+        <div class="skill-chips">
+          <span class="skill-chip">GitHub</span><span class="skill-chip">VS Code</span><span class="skill-chip">Arduino IDE</span>
+          <span class="skill-chip">MATLAB</span><span class="skill-chip">Proteus</span>
+        </div>
+        <div style="font-weight:600; font-size:0.8rem; color:#4f351a; margin-top:0.5rem;">Hardware</div>
+        <div class="skill-chips">
+          <span class="skill-chip">ESP32</span><span class="skill-chip">ESP8266</span><span class="skill-chip">Arduino Uno</span>
+          <span class="skill-chip">Raspberry Pi</span>
+        </div>
+        <div style="font-weight:600; font-size:0.8rem; color:#4f351a; margin-top:0.5rem;">Database</div>
+        <div class="skill-chips">
+          <span class="skill-chip">MySQL</span><span class="skill-chip">Firebase</span>
+        </div>
+      </div>
 
-        <!-- Work Experience -->
-        <div>
-          <h4 class="section-title">Work Experience / Internship</h4>
-          <div class="exp-item">
-            <span class="exp-title">Intel Technology Malaysia Sdn. Bhd.</span>
-            <span class="exp-meta">Penang · Feb 2025 – Aug 2025</span>
-            <ul>
-              <li>Assisted engineers in automated testing activities.</li>
-              <li>Supported production data analysis and reporting.</li>
-              <li>Participated in IoT-based predictive maintenance projects.</li>
-              <li>Prepared technical documentation and reports.</li>
-            </ul>
-          </div>
+      <!-- Languages -->
+      <div class="info-item">
+        <h4><span class="skull-icon">🗺️</span> Languages</h4>
+        <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+          <span class="lang-item">Malay</span>
+          <span class="lang-item">English</span>
         </div>
+      </div>
 
-        <!-- Projects -->
-        <div>
-          <h4 class="section-title">Projects</h4>
-          <div class="project-item"><strong>Smart Parking Monitoring System</strong> <span>– IoT-based parking availability monitoring using ESP32 and Firebase.</span></div>
-          <div class="project-item"><strong>Student Academic Guidance System</strong> <span>– Web-based academic recommendation system using PHP and MySQL.</span></div>
-          <div class="project-item"><strong>Smart Home Automation System</strong> <span>– Remote monitoring and appliance control using ESP8266.</span></div>
-        </div>
+      <!-- Reference -->
+      <div class="ref-card">
+        <h4 style="font-family: 'Pirata One', cursive; font-size:1.2rem; color:#3d2b13; display:flex; gap:6px; margin-bottom:0.3rem;">📜 Reference</h4>
+        <p class="name">Ts. Dr. Ahmad Faizal Bin Mohd Noor</p>
+        <p style="font-weight:500; color:#3d2b13;">Senior Lecturer, UniMAP</p>
+        <p class="email">faizal@unimap.edu.my</p>
+      </div>
+    </div>
 
-        <!-- Certifications & Awards -->
-        <div>
-          <h4 class="section-title">Certifications & Awards</h4>
-          <div class="cert-grid">
-            <span>🏅 Dean's Award (Sem 2, 4, 6)</span>
-            <span>🥇 Gold Medal, UniMAP Innovation Competition 2024</span>
-            <span>📜 Cisco Networking Essentials</span>
-            <span>📊 Google Data Analytics Certificate</span>
-          </div>
-        </div>
+    <!-- RIGHT PANEL :  One Piece journey -->
+    <div class="right-panel">
+      <!-- Professional Summary -->
+      <div class="professional-summary">
+        <div class="section-title"><span>🏝️</span> Summary</div>
+        <p>A motivated Computer Engineering graduate with strong interests in software development, embedded systems, Internet of Things (IoT), and artificial intelligence. Through academic projects and industrial exposure, I have developed problem-solving, teamwork, and technical skills. I am eager to contribute to engineering projects while continuing to grow professionally.</p>
+      </div>
 
-        <!-- tiny extra: soft separator + quote -->
-        <div style="margin-top: 0.8rem; border-top: 1px solid #e1e9f2; padding-top: 1.2rem; display: flex; justify-content: flex-end;">
-          <span style="font-size: 0.8rem; color: #4a6382; background: #f1f6fd; padding: 0.2rem 1.8rem; border-radius: 60px;">“ build, innovate, iterate ”</span>
+      <!-- Work Experience -->
+      <div>
+        <div class="section-title"><span>⚓</span> Voyage / Internship</div>
+        <div class="exp-item">
+          <span class="exp-title">Intel Technology Malaysia Sdn. Bhd.</span>
+          <span class="exp-meta">Penang · Feb 2025 – Aug 2025</span>
+          <ul>
+            <li>Assisted engineers in automated testing activities.</li>
+            <li>Supported production data analysis and reporting.</li>
+            <li>Participated in IoT-based predictive maintenance projects.</li>
+            <li>Prepared technical documentation and reports.</li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Projects -->
+      <div>
+        <div class="section-title"><span>🏴‍☠️</span> Projects</div>
+        <div class="project-item"><strong>Smart Parking Monitoring System</strong> <span>– IoT-based parking availability using ESP32 & Firebase.</span></div>
+        <div class="project-item"><strong>Student Academic Guidance System</strong> <span>– Web-based recommendation using PHP & MySQL.</span></div>
+        <div class="project-item"><strong>Smart Home Automation System</strong> <span>– Remote monitoring & control using ESP8266.</span></div>
+      </div>
+
+      <!-- Certifications & Awards -->
+      <div>
+        <div class="section-title"><span>🏅</span> Bounty & Awards</div>
+        <div class="cert-grid">
+          <span>🏅 Dean's Award (Sem 2,4,6)</span>
+          <span>🥇 Gold Medal, UniMAP Innovation 2024</span>
+          <span>📜 Cisco Networking Essentials</span>
+          <span>📊 Google Data Analytics</span>
+        </div>
+      </div>
+
+      <!-- footer quote -->
+      <div class="footer-quote">
+        <span>“ The sea is calling ... build, innovate, set sail ”</span>
       </div>
     </div>
   </div>
+</div>
 </body>
 </html>
